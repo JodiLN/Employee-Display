@@ -1,11 +1,12 @@
-/* style fields for employee input*/
-
-.employee-display-form{
+/*--------------------------------------------------------------
+# Style Fields for Employee Input
+--------------------------------------------------------------*/
+.employee-listing-form{
 	font-size:18px;
 	padding-top:15px;
 }
 
-.employee-display-form input {
+.employee-listing-form input {
 	padding:5px;
 }
 
@@ -13,11 +14,39 @@
 	width: 100%;
 }
 
-.employee-display-form label{
+.employee-listing-form label{
 	display: block;
 	padding-bottom: 10px;
 }
 
 .form-group{
 	padding-bottom: 15px;
+}
+
+.mins{
+	font-size:13px;
+}
+
+.loading{
+	display:none;
+}
+
+.order-save-msg, .order-save-err{
+	display:none;
+	padding: 10px !important; /*!important so that it overrides most anything else*/
+}
+
+.employee-sort-list{
+	max-width: 400px;
+}
+
+.employee-sort-list li{
+	padding: 12px;
+	background: #f7f7f7;
+	border: solid 1px #ddd;
+}
+
+.employee-sort-list li:hover{
+	background: #f5f5f5;
+	cursor: crosshair;
 }
