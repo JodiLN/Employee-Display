@@ -1,0 +1,46 @@
+.employee-col{
+	width: 33%;
+	float: left;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.employee-col .employee-title{
+	padding:20px 0 0 0 !important;
+	margin: 0 !important;
+}
+
+.employee-col img{
+	width:90%;
+	margin:auto;
+	height: 300px;
+	display: block;
+}
+
+.ed-title{
+	font-size:32px;
+}
+
+.ed-release{
+	margin-bottom:20px;
+}
+
+.ed-left{
+	width:30%;
+	float:left;
+}
+
+.ed-left img{
+	width:100%;
+}
+
+.ed-right{
+	width:70%;
+	float:right;
+	padding:10px 20px;
+}
+
+.clr{
+	clear:both;
+	margin-bottom:40px;
+}
