@@ -14,6 +14,9 @@ if (is_admin()) {
 		wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css'); //css for reorder function.
 		wp_enqueue_style('ed-style',plugins_url() . '/employee-display/css/style-admin.css');
 		wp_enqueue_script('ed-script',plugins_url().'/employee-display/js/main.js');
+		wp_localize_script('ed-script','ED_EMPLOYEE_DISPLAY', array(
+			'token' => wp_create_nonce('ed-token')
+		)); //localized script for localized token
 	}
 }
  /*To place scripts in WordPress flow, add a Hook.  admin-init says when the

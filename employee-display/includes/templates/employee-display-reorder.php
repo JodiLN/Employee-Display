@@ -70,19 +70,19 @@ function ed_save_order(){
 
 	$order = $_POST['order'];
 
-	$counter = 0;
+	$counter = 0; // Set counter to zero
 
-	foreach($order as $display_id){
+	foreach($order as $display_id){  // For each loop to loop through order
 		$display = array(
-			'ID' => (int)$display_id,
+			'ID' => (int)$display_id, // use int to make sure it's an integer
 			'menu_order' => $counter
 		);
 
 		wp_update_post($display);
-		$counter++;
+		$counter++; // Update counter, increment it by 1
 	}
 
-	wp_send_json_success('display Order Saved');
+	wp_send_json_success('display Order Saved'); // If everything goes well send success message
 }
 
 add_action('wp_ajax_save_order', 'ed_save_order');

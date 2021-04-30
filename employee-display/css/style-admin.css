@@ -23,13 +23,13 @@
 	padding-bottom: 15px;
 }
 
-.mins{
-	font-size:13px;
+.loading{
+	display:none; /* Have image not load initially
 }
 
-.loading{
-	display:none;
-}
+/*--------------------------------------------------------------
+# Style Employee Display Order and Sort
+--------------------------------------------------------------*/
 
 .order-save-msg, .order-save-err{
 	display:none;

@@ -32,10 +32,10 @@ function ed_add_fields_callback($post){
   $ed_stored_meta = get_post_meta($post->ID);
 	?>
 
-  // Create the form
+  <!-- Create the form -->
 		<div class="wrap employee-display-form">
 			<div class="form-group">
-        // escape html to prevent malicious code; text domain= ed-domain
+        <!-- escape html to prevent malicious code; text domain= ed-domain-->
 				<label for="employee-id"><?php esc_html_e('employee ID', 'ed-domain'); ?></label>
 				<input type="text" class="full" name="employee_id" id="employee-id" value="<?php if(!empty($ed_stored_meta['employee_id'])) echo esc_attr($ed_stored_meta['employee_id'][0]); ?>">
 			</div>
@@ -51,7 +51,7 @@ function ed_add_fields_callback($post){
 					foreach($option_values as $key => $value){
 						if($value == $ed_stored_meta['job_title'][0]){
 							?>
-              // Display selected value
+              <!-- Display selected value-->
 								<option selected><?php echo $value; ?></option>
 							<?php
 						} else {
@@ -62,6 +62,33 @@ function ed_add_fields_callback($post){
 					}
 					?>
 				</select>
+			</div>
+
+			<?php if(get_settings('ed_setting_show_editor')) : ?> <!-- if show editor is toggled on then show editor area under Employee Displays, otherwise... (see else comments)-->
+			<div class="form-group">
+				<label for="details"><?php esc_html_e('Details', 'ed-domain'); ?></label>
+				<?php
+					$content = get_post_meta($post->ID, 'details', true);
+					$editor = 'details';
+					$settings = array(
+						'textarea_rows' => 5,
+						// If show media buttons checked then show media button, if not checked then don't show media button
+						'media_buttons' => get_settings('ed_setting_show_media_buttons')
+					);
+
+					wp_editor($content, $editor, $settings);
+				?>
+			</div>
+		<?php else : ?> <!-- otherwise, instead of an editor, have a text area. -->
+				<div class="form-group">
+					<label for="details"><?php esc_html_e('Details', 'ed-domain'); ?></label>
+					<textarea class="full" name="details" id="details">
+						<!-- Check for details, if there are details, then echo that out-->
+						<?php if(!empty($ed_stored_meta['details'])) echo esc_html($ed_stored_meta['details'][0]); ?>
+					</textarea>
+				</div>
+			<?php endif; ?>
+
 
 			<div class="form-group">
 				<label for="first-name"><?php esc_hted_e('First name', 'ed-domain'); ?></label>

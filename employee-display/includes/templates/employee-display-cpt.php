@@ -21,7 +21,8 @@ function ed_register_employee_display() {
         'parent_item_colon'     => 'Parent '.$singular_name,
         'menu_name'             => $plural_name,
     );
-
+    
+    // Create arguments
     $args = apply_filters('ed_employee_display_args', array(
         'labels'                => $labels,
         'hierarchical'          => true,
